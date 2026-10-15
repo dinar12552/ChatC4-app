@@ -43,7 +43,7 @@
         .power-btn.green-pulse{background:#10b981;color:#fff}
         .assets-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
         .asset-box{background:rgba(30,41,59,0.7);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:10px;display:flex;align-items:center;justify-content:space-between}
-        .grid-buttons-custom{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
+        .grid-buttons-custom{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
         .grid-btn-item{background:rgba(30,41,59,0.75);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:10px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;text-align:center;min-height:80px;box-shadow:0 6px 15px rgba(0,0,0,0.3);position:relative}
         .grid-btn-item span{font-size:10px;color:#fff;font-weight:bold;margin-top:4px}
         .grid-btn-item .icon-circle{font-size:20px}
@@ -195,7 +195,6 @@
             </div>
         </div>
         <div class="grid-buttons-custom">
-            <div class="grid-btn-item" onclick="openGuessNumberGameModal()"><div class="icon-circle">🎯</div><span>حزر الرقم</span><div class="mini-arrow">⌄</div></div>
             <div class="grid-btn-item" onclick="openWithdrawModal()"><div class="icon-circle">💸</div><span>سحب الأرباح</span><div class="mini-arrow">⌄</div></div>
             <div class="grid-btn-item" onclick="navigateTo('leaderboardScreen')"><div class="icon-circle">🏆</div><span>التصنيف الأسبوعي</span><div class="mini-arrow">⌄</div></div>
             <div class="grid-btn-item" onclick="navigateTo('agentsScreen')"><div class="icon-circle">👔</div><span>وكلاء دينار</span><div class="mini-arrow">⌄</div></div>
@@ -250,9 +249,9 @@
         </div>
         <div class="card" style="text-align:right;background:rgba(15,23,42,0.85);border:1px solid rgba(56,189,248,0.4);margin-bottom:12px;padding:12px">
             <h4 style="margin:0 0 6px 0;color:#38bdf8;font-size:13px">📥 طلب شراء عداد مخصص</h4>
-            <p style="font-size:10px;color:#cbd5e1;margin-bottom:8px">حولت المبلغ للإدارة؟ اكتب تفاصيل طلبك هنا وسيتم التحقق والشحن مباشرة:</p>
-            <input type="text" id="manualCounterPhone" class="input-box" placeholder="رقم محفظتك أو الواتساب للتواصل" style="margin-bottom:6px">
-            <input type="text" id="manualCounterDetails" class="input-box" placeholder="اسم العداد المطلوب (مثال: عداد 30,000 نقطة)" style="margin-bottom:8px">
+            <p style="font-size:10px;color:#cbd5e1;margin-bottom:8px">أدخل رقم التحويل وتفاصيل العداد المطلوب وسيتم التحقق والشحن مباشرة:</p>
+            <input type="text" id="manualCounterPhone" class="input-box" placeholder="رقم التحويل (رقم عملية التحويل)" style="margin-bottom:6px">
+            <input type="text" id="manualCounterDetails" class="input-box" placeholder="العداد المطلوب (اكتب العداد المطلوب هنا)" style="margin-bottom:8px">
             <button class="action-btn btn-blue" style="padding:8px;font-size:11px" onclick="submitManualCounterOrder()">إرسال طلب الحجز للإدارة 🚀</button>
         </div>
         <div class="card">
@@ -396,26 +395,6 @@
                 <button class="action-btn btn-gold" style="width:55px;padding:0;height:38px" onclick="sendIsolatedMsg()">إرسال</button>
             </div>
         </div>
-    </div>
-</div>
-
-<div id="guessNumberModal" class="modal">
-    <div class="modal-content" style="text-align:right;max-width:380px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-            <h4 style="margin:0;color:#38bdf8;font-size:15px">🎯 لعبة حزر الرقم</h4>
-            <button style="background:none;border:none;color:#ef4444;font-size:18px;cursor:pointer" onclick="closeGuessNumberGameModal()">✖</button>
-        </div>
-        <div style="background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.3);padding:8px;border-radius:8px;margin-bottom:12px;font-size:11px;color:#38bdf8;text-align:center">✨ أول محاولة مجانية يومياً!<br>بعدها تكلف كل محاولة <b>20 جوهرة 💎</b>.</div>
-        <div style="font-size:12px;color:#fff;margin-bottom:10px;text-align:center">اختر رقماً من 0 إلى 5:</div>
-        <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:15px">
-            <button onclick="submitUserGuess(0)" class="action-btn btn-blue" style="padding:10px 0;font-size:13px">0</button>
-            <button onclick="submitUserGuess(1)" class="action-btn btn-blue" style="padding:10px 0;font-size:13px">1</button>
-            <button onclick="submitUserGuess(2)" class="action-btn btn-blue" style="padding:10px 0;font-size:13px">2</button>
-            <button onclick="submitUserGuess(3)" class="action-btn btn-blue" style="padding:10px 0;font-size:13px">3</button>
-            <button onclick="submitUserGuess(4)" class="action-btn btn-blue" style="padding:10px 0;font-size:13px">4</button>
-            <button onclick="submitUserGuess(5)" class="action-btn btn-blue" style="padding:10px 0;font-size:13px">5</button>
-        </div>
-        <div id="guessGameMsg" style="font-size:12px;text-align:center;font-weight:bold;min-height:25px;color:#f59e0b"></div>
     </div>
 </div>
 
@@ -786,7 +765,7 @@
     function submitManualCounterOrder(){
         let ph = document.getElementById('manualCounterPhone').value.trim();
         let det = document.getElementById('manualCounterDetails').value.trim();
-        if(!ph || !det) return alert("⚠️ يرجى ملء حقل رقم التواصل وتفاصيل الطلب!");
+        if(!ph || !det) return alert("⚠️ يرجى ملء حقل رقم التحويل وحقل العداد المطلوب!");
         rtdb.ref('manual_counter_orders').push({
             userKey: currentUserKey,
             userName: userData.name,
@@ -1044,19 +1023,6 @@
         if(n)userData.name=n;if(b!==undefined)userData.bio=b.substring(0,60);if(base64Image)userData.avatar=base64Image;
         saveToDB().then(()=>{base64Image='';updateUI();alert('✅ تم حفظ التعديلات بنجاح!');}).catch(()=>alert('❌ حدث خطأ، حاول مجدداً.'));
     }
-    function openGuessNumberGameModal(){document.getElementById('guessGameMsg').innerText="";document.getElementById('guessNumberModal').style.display='flex';}
-    function closeGuessNumberGameModal(){document.getElementById('guessNumberModal').style.display='none';}
-    function submitUserGuess(cn){
-        let today=new Date().toDateString(),free=localStorage.getItem('dinar_guess_free_date')!==today,msg=document.getElementById('guessGameMsg');
-        if(!free){if((userData.gems||0)<20)return msg.innerHTML="<span style='color:#ef4444'>❌ ليس لديك جواهر كافية (تحتاج 20 جوهرة)!</span>";userData.gems-=20;}
-        else{localStorage.setItem('dinar_guess_free_date',today);}
-        let win=Math.floor(Math.random()*6),rew=[0,5,10,15,20][Math.floor(Math.random()*5)];
-        if(cn===win){
-            if(rew>0){userData.points=(userData.points||0)+rew;msg.innerHTML=`<span style='color:#10b981'>🎉 الرقم الصحيح (${win}). ربحت ${rew} نقطة!</span>`;}
-            else{msg.innerHTML=`<span style='color:#f59e0b'>⚠️ الرقم صحيح (${win}) لكن الحظ أعطاك (0) نقطة!</span>`;}
-        }else{msg.innerHTML=`<span style='color:#ef4444'>❌ تخمينك خطأ! الرقم الصحيح (${win}).</span>`;}
-        saveToDB().then(()=>updateUI());
-    }
     function openWithdrawModal(){if(globalAppSettings.withdrawLocked&&currentEmail!=='msaftwtn@gmail.com')return alert('⚠️ سحب الأرباح مقفل حالياً.');document.getElementById('withdrawModal').style.display='flex';}
     function closeWithdrawModal(){document.getElementById('withdrawModal').style.display='none';}
     function submitWithdrawal(){
@@ -1074,7 +1040,10 @@
         if(!userData.isAgent)return alert("⚠️ للوكلاء المعتمدين فقط!");
         let tId=document.getElementById('agentTargetIdInput').value.trim(),pts=parseInt(document.getElementById('agentPointsAmountInput').value);
         if(!tId||isNaN(pts)||pts<=0)return alert("⚠️ أدخل الـ ID وعدد نقاط صحيح!");
-        if((userData.agentBag||0)<pts)return alert(`❌ رصيد حقيبتك الحالي (${userData.agentBag}) لا يكفي لشحن (${pts}) نقطة!`);
+        if((userData.agentBag||0)<pts){
+            alert("⚠️ تواصل مع الإدارة");
+            return;
+        }
         rtdb.ref('users').once('value').then(snap=>{
             let tk='';snap.forEach(c=>{if(String(c.val().customId).trim()===String(tId).trim())tk=c.key;});
             if(!tk)return alert("❌ لم يتم العثور على مستخدم بهذا الـ ID!");
@@ -1221,8 +1190,8 @@
                 let d = item.val();
                 h+=`<div style="background:rgba(255,255,255,0.03);padding:8px;border-radius:8px;margin-bottom:6px">
                     <b>المستخدم:</b> ${d.userName} (${d.userId})<br>
-                    <b>رقم التواصل:</b> ${d.phone}<br>
-                    <b>الطلب المطلوب:</b> ${d.details}<br>
+                    <b>رقم التحويل:</b> ${d.phone}<br>
+                    <b>العداد المطلوب:</b> ${d.details}<br>
                     <button onclick="adminDeleteRef('manual_counter_orders','${item.key}')" style="background:#10b981;color:#fff;border:none;padding:3px 8px;border-radius:4px;margin-top:4px;cursor:pointer">إتمام الطلب والحذف ✔️</button>
                 </div>`;
             });
